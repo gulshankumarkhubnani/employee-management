@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}-service
+  labels:
+    {{- inlcude "employee-management.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+  - port: {{.Values.service.type }}
+    targetPort: 8000
+    protocol: TCP
+  selector:
+    {{- include "employee-management.selectorLabels" . | nindent 4}}

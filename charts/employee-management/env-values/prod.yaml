@@ -1,0 +1,34 @@
+global:
+  environment: production
+
+replicaCount: 1
+image:
+  repository: ://your-registry.com
+  tag: "1.0.0"
+
+plateformTeam:
+  email: example@example.com
+
+
+ingress:
+  host: ://company.com
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+
+hpa:
+  enabled: false
+  minReplicas: 3
+  minReplicas: 10
+  targetCPU:70
+  targetMemory:75
+
+resources:
+  requests:
+    cpu: 500m
+    memory: 512Mi
+  limits:
+    cpu: 1000m
+    memory: 1024Mi
+
+    

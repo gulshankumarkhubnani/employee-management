@@ -1,0 +1,10 @@
+global:
+  environment: development
+
+replicaCount: 1
+
+image:
+  repository: ://your-registry.com
+
+ingress:
+  host: api.dev.company.internal
