@@ -4,7 +4,7 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: {{ .Release.Name }}-{{ .Chart.Name }}-hpa
   labels:
-    {{- include "emploee-management.labels" . | nindent 4}}
+    {{- include "employee-management.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
@@ -18,11 +18,12 @@ spec:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: {{ .Values.hpa.averageUtilization }}
+        averageUtilization: {{ .Values.hpa.targetCPU }}
   - type: Resource
     resource:
       name: memory
       target:
         type: Utilization
-        averageUtilization: {{ .Values.hpa.averageUtilization }}
+        averageUtilization: {{ .Values.hpa.targetMemory }}
 {{- end }}
+

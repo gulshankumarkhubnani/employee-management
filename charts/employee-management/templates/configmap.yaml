@@ -3,8 +3,9 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-{{ .Chart.Name }}-config
   labels:
-    {{- include "emploee-management.labels" . | nindent 4}}
+    {{- include "employee-management.labels" . | nindent 4 }}
 data:
-  ENVIRONMENT_NAME: {{ .Values.global.environment | qoute }}
-  PLATEFORM_TEAM_EMAIL: {{ .Values.plateformTeam.email | qoute }}
-  ENVIRONMENT_NAME: {{ .Values.image.tag | default .Chart.AppVersion | qoute}}
+  ENVIRONMENT_NAME: {{ .Values.global.environment | quote }}
+  PLATFORM_TEAM_EMAIL: {{ .Values.platformTeam.email | quote }}
+  DEPLOYMENT_VERSION: {{ .Values.image.tag | default .Chart.AppVersion | quote }}
+

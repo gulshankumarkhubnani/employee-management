@@ -1,14 +1,12 @@
 global:
   environment: production
 
-replicaCount: 1
 image:
   repository: ://your-registry.com
-  tag: "1.0.0"
+  tag: "v1.0.0"
 
-plateformTeam:
-  email: example@example.com
-
+platformTeam:
+  email: platform-ops@company.com
 
 ingress:
   host: ://company.com
@@ -17,11 +15,11 @@ ingress:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 
 hpa:
-  enabled: false
+  enabled: true
   minReplicas: 3
-  minReplicas: 10
-  targetCPU:70
-  targetMemory:75
+  maxReplicas: 10
+  targetCPU: 70
+  targetMemory: 75
 
 resources:
   requests:
@@ -30,5 +28,4 @@ resources:
   limits:
     cpu: 1000m
     memory: 1024Mi
-
     

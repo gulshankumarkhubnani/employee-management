@@ -4,7 +4,7 @@ kind: Ingress
 metadata:
   name: {{ .Release.Name }}-{{ .Chart.Name }}-ingress
   annotations:
-    {{- toYaml .Values.ingress.annotations }}
+    {{- toYaml .Values.ingress.annotations | nindent 4 }}
 spec:
   ingressClassName: {{ .Values.ingress.className }}
   rules:
@@ -15,7 +15,8 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: {{ .Release.Name }}-{{ .Chart.Name }}-serivce
+            name: {{ .Release.Name }}-{{ .Chart.Name }}-service
             port:
               number: {{ .Values.service.port }}
-{{- end}}
+{{- end }}
+

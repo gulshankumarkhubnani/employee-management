@@ -5,6 +5,8 @@ replicaCount: 1
 
 image:
   repository: ://your-registry.com
+  tag: "dev-latest"
 
 ingress:
   host: api.dev.company.internal
+

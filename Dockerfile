@@ -6,7 +6,7 @@ RUN pip install --no-cache-dir --user -r requirements.txt
 
 FROM python:3.11-slim AS runner
 WORKDIR /app
-RUN groupadd -g 10001 appuser && iseradd -u 10001 -g appuser -s /bin/bash -m appuser
+RUN groupadd -g 10001 appuser && useradd -u 10001 -g appuser -s /bin/bash -m appuser
 COPY --from=builder /root/.local /home/appuser/.local
 COPY app/ ./app/
 

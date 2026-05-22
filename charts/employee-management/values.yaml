@@ -2,16 +2,17 @@ global:
   environment: fallback-local
 
 replicaCount: 1
+
 image:
   repository: local/employee-management-api
   tag: "1.0.0"
   pullPolicy: IfNotPresent
 
-plateformTeam:
-  email: example@example.com
+platformTeam:
+  email: dev-support@company.com
 
-serivce:
-  type: ClusterIp
+service:
+  type: ClusterIP
   port: 80
 
 ingress:
@@ -45,4 +46,3 @@ resources:
     cpu: 200m
     memory: 256Mi
 
-    
