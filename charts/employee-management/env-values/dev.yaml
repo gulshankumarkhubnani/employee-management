@@ -4,8 +4,8 @@ global:
 replicaCount: 1
 
 image:
-  repository: ://your-registry.com
-  tag: "dev-latest"
+  repository: employee-management-api-dev
+  tag: 1.0.0
 
 ingress:
   host: api.dev.company.internal

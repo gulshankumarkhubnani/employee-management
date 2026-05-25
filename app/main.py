@@ -1,3 +1,9 @@
+import os
+import sys
+
+# Append the absolute directory path of main.py to Python's system path list
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 import uvicorn
 from fastapi import FastAPI
 from src.config import settings
