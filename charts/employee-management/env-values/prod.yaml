@@ -2,14 +2,14 @@ global:
   environment: production
 
 image:
-  repository: ://your-registry.com
+  repository: employee-api-prod
   tag: "v1.0.0"
 
 platformTeam:
   email: platform-ops@company.com
 
 ingress:
-  host: ://company.com
+  host: employee-api.host
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -23,9 +23,9 @@ hpa:
 
 resources:
   requests:
-    cpu: 500m
-    memory: 512Mi
+    cpu: 200m
+    memory: 256Mi
   limits:
-    cpu: 1000m
-    memory: 1024Mi
+    cpu: 2000m
+    memory: 2048Mi
     
